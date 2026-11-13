@@ -215,6 +215,19 @@ if (!reducedMotion.matches) {
   }
 }
 
+document.querySelectorAll(".platform").forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    e.preventDefault();
+    if (btn.classList.contains("is-launching")) return;
+    btn.classList.add("is-launching");
+    setTimeout(() => {
+      btn.classList.remove("is-launching");
+      window.location.href = btn.href;
+    }, 2000);
+  });
+});
+
 const shareButton = document.querySelector(".share-button");
 const shareStatus = document.querySelector("#share-status");
 if (location.protocol.startsWith("http") && (navigator.share || navigator.clipboard?.writeText)) {
