@@ -560,25 +560,6 @@ body.is-loading .history-photo > * {
   opacity: 1;
 }
 
-.theme-toggle {
-  display: grid;
-  place-items: center;
-  width: 2.2rem;
-  height: 2.2rem;
-  align-self: center;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background: transparent;
-  color: inherit;
-  font-size: 0.95rem;
-  cursor: pointer;
-  transition: transform 200ms ease, background-color 200ms ease;
-}
-.theme-toggle:hover {
-  transform: rotate(25deg);
-  background: rgba(0, 0, 0, 0.05);
-}
-
 .back-to-top {
   position: fixed;
   right: 1.25rem;

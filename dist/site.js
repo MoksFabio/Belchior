@@ -185,25 +185,6 @@ if (backToTop) {
   });
 }
 
-const themeToggle = document.getElementById("theme-toggle");
-if (themeToggle) {
-  try {
-    if (localStorage.getItem("belchior_theme") === "dark") {
-      document.documentElement.setAttribute("data-theme", "dark");
-    }
-  } catch {}
-  themeToggle.addEventListener("click", () => {
-    const isDark = document.documentElement.getAttribute("data-theme") === "dark";
-    if (isDark) {
-      document.documentElement.removeAttribute("data-theme");
-      try { localStorage.setItem("belchior_theme", "light"); } catch {}
-    } else {
-      document.documentElement.setAttribute("data-theme", "dark");
-      try { localStorage.setItem("belchior_theme", "dark"); } catch {}
-    }
-  });
-}
-
 if (!reducedMotion.matches) {
   document.querySelectorAll(".platform").forEach((btn) => {
     btn.addEventListener("pointermove", (e) => {
