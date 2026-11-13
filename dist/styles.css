@@ -79,7 +79,7 @@ svg { width: 1.25rem; height: 1.25rem; flex: none; }
   height: 1.75rem;
   filter: brightness(0);
 }
-.masthead nav { display: flex; gap: clamp(0.55rem, 3vw, 2rem); }
+.masthead nav { position: relative; display: flex; gap: clamp(0.55rem, 3vw, 2rem); }
 .masthead nav a {
   display: grid;
   min-height: 2.75rem;
@@ -637,10 +637,17 @@ body.is-loading .history-photo > * {
   will-change: transform;
 }
 
-.masthead nav a.is-active {
-  text-decoration: underline;
-  text-underline-offset: 0.28em;
-  text-decoration-thickness: 2px;
+.nav-indicator {
+  position: absolute;
+  left: 0;
+  bottom: 0.45rem;
+  height: 2px;
+  width: 0;
+  background: currentColor;
+  border-radius: 2px;
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 380ms cubic-bezier(.22, 1, .36, 1), width 380ms cubic-bezier(.22, 1, .36, 1), opacity 200ms ease;
 }
 
 .hero-origin { animation: ink-in 520ms 120ms both; }

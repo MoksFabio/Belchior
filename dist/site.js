@@ -157,16 +157,40 @@ if (!reducedMotion.matches) {
 }
 
 const navLinks = [...document.querySelectorAll(".masthead nav a[href^='#']")];
+const navIndicator = document.getElementById("nav-indicator");
 const navSections = navLinks
   .map((link) => ({ link, target: document.querySelector(link.getAttribute("href")) }))
   .filter((item) => item.target);
+
+function moveNavIndicator(activeLink) {
+  if (!navIndicator || !activeLink) return;
+  navIndicator.style.width = `${activeLink.offsetWidth}px`;
+  navIndicator.style.transform = `translateX(${activeLink.offsetLeft}px)`;
+  navIndicator.style.opacity = "1";
+}
+
+if (navLinks.length) {
+  navLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      navLinks.forEach((l) => l.classList.toggle("is-active", l === link));
+      moveNavIndicator(link);
+    });
+  });
+
+  window.addEventListener("resize", () => {
+    const current = navLinks.find((l) => l.classList.contains("is-active")) || navLinks[0];
+    moveNavIndicator(current);
+  }, { passive: true });
+}
 
 if ("IntersectionObserver" in window && navSections.length) {
   const spyObserver = new IntersectionObserver((entries) => {
     for (const entry of entries) {
       if (entry.isIntersecting) {
         navSections.forEach(({ link, target }) => {
-          link.classList.toggle("is-active", target === entry.target);
+          const active = target === entry.target;
+          link.classList.toggle("is-active", active);
+          if (active) moveNavIndicator(link);
         });
       }
     }
