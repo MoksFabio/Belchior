@@ -14,20 +14,25 @@
   <link rel="stylesheet" href="styles.css">
   <script src="site.js" defer></script>
 </head>
-<body id="inicio">
+<body id="inicio" class="is-loading">
   <a class="skip-link" href="#ouvir">Ir para as plataformas</a>
   <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
     <symbol id="icon-external" viewBox="0 0 24 24"><path d="M6 18 18 6M8 6h10v10" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
     <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
     <symbol id="icon-share" viewBox="0 0 24 24"><path d="M12 15V3m-4 4 4-4 4 4M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/></symbol>
     <symbol id="icon-spotify" viewBox="0 0 24 24"><path fill="currentColor" d="M12 0a12 12 0 1 0 0 24 12 12 0 0 0 0-24Zm5.51 17.32a.75.75 0 0 1-1.03.25c-2.82-1.72-6.36-2.11-10.54-1.16a.75.75 0 0 1-.33-1.46c4.57-1.04 8.5-.59 11.65 1.34a.75.75 0 0 1 .25 1.03Zm1.47-3.28a.93.93 0 0 1-1.28.31c-3.23-1.98-8.14-2.56-11.95-1.4a.93.93 0 1 1-.54-1.79c4.35-1.32 9.77-.68 13.46 1.59.44.27.58.85.31 1.29Zm.13-3.41C15.23 8.33 8.83 8.12 5.12 9.25a1.12 1.12 0 1 1-.65-2.15c4.26-1.29 11.33-1.04 15.79 1.61a1.12 1.12 0 0 1-1.15 1.92Z"/></symbol>
-    <symbol id="icon-youtube-music" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11.5" fill="currentColor"/><circle cx="12" cy="12" r="7.1" fill="none" stroke="white" stroke-width="1.2"/><path d="M10 8.6v6.8l5.7-3.4z" fill="white"/></symbol>
-    <symbol id="icon-apple" viewBox="0 0 24 24"><rect x="1" y="1" width="22" height="22" rx="5" fill="currentColor"/><path d="M10 16V7.8L18 6v8.5m-8 1.6c0 1.1-1.2 2-2.6 2-1.1 0-1.7-.6-1.7-1.4 0-1.1 1.2-2 2.6-2 .9 0 1.7.5 1.7 1.4Zm8-1.7c0 1.1-1.2 2-2.6 2-1.1 0-1.7-.6-1.7-1.4 0-1.1 1.2-2 2.6-2 .9 0 1.7.5 1.7 1.4ZM10 10l8-1.8" fill="none" stroke="white" stroke-width="1.35" stroke-linejoin="round" stroke-linecap="round"/></symbol>
-    <symbol id="icon-deezer" viewBox="0 0 24 24"><path d="M1.4 7.6c1.5 0 3.1 1.7 4.1 3.3-.2-2 .6-4.2 2.2-4.2 1.2 0 2.4 1.5 2.8 3.5.3-2.7.9-4.5 1.5-4.5s1.2 1.8 1.5 4.5c.4-2 1.6-3.5 2.8-3.5 1.6 0 2.4 2.2 2.2 4.2 1-1.6 2.6-3.3 4.1-3.3 2.9 0 .3 5.6-2 7.8-2 2-5 3.6-8.6 5.3-3.6-1.7-6.6-3.3-8.6-5.3-2.3-2.2-4.9-7.8-2-7.8Z" fill="currentColor"/></symbol>
+    <symbol id="icon-youtube-music" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11.5" fill="currentColor"/><circle cx="12" cy="12" r="7.1" fill="none" stroke="var(--icon-cutout, white)" stroke-width="1.2"/><path d="M10 8.6v6.8l5.7-3.4z" fill="var(--icon-cutout, white)"/></symbol>
+    <symbol id="icon-apple" viewBox="0 0 24 24"><rect x="1" y="1" width="22" height="22" rx="5" fill="currentColor"/><path d="M10 16V7.8L18 6v8.5m-8 1.6c0 1.1-1.2 2-2.6 2-1.1 0-1.7-.6-1.7-1.4 0-1.1 1.2-2 2.6-2 .9 0 1.7.5 1.7 1.4Zm8-1.7c0 1.1-1.2 2-2.6 2-1.1 0-1.7-.6-1.7-1.4 0-1.1 1.2-2 2.6-2 .9 0 1.7.5 1.7 1.4ZM10 10l8-1.8" fill="none" stroke="var(--icon-cutout, white)" stroke-width="1.35" stroke-linejoin="round" stroke-linecap="round"/></symbol>
+    <symbol id="icon-deezer" viewBox="0 0 24 24"><g fill="currentColor"><rect x="2" y="16" width="4" height="2.6" rx="0.5"/><rect x="2" y="12.2" width="4" height="2.6" rx="0.5"/><rect x="7.3" y="16" width="4" height="2.6" rx="0.5"/><rect x="7.3" y="12.2" width="4" height="2.6" rx="0.5"/><rect x="7.3" y="8.4" width="4" height="2.6" rx="0.5"/><rect x="7.3" y="4.6" width="4" height="2.6" rx="0.5"/><rect x="12.6" y="16" width="4" height="2.6" rx="0.5"/><rect x="12.6" y="12.2" width="4" height="2.6" rx="0.5"/><rect x="12.6" y="8.4" width="4" height="2.6" rx="0.5"/><rect x="18" y="16" width="4" height="2.6" rx="0.5"/><rect x="18" y="12.2" width="4" height="2.6" rx="0.5"/><rect x="18" y="8.4" width="4" height="2.6" rx="0.5"/><rect x="18" y="4.6" width="4" height="2.6" rx="0.5"/></g></symbol>
     <symbol id="icon-youtube" viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8Z" fill="currentColor"/><path d="m9.5 15.6 6.3-3.6-6.3-3.6z" fill="white"/></symbol>
   </svg>
 
+  <div class="splash" id="splash" aria-hidden="true">
+    <img src="assets/belchior-icon.svg" width="76" height="76" alt="">
+  </div>
+
   <header class="masthead">
+    <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
     <div class="frame masthead-inner">
       <a class="wordmark" href="#inicio" aria-label="Belchior para ouvir, início">
         <img class="wordmark-icon" src="assets/belchior-icon.svg" width="28" height="28" alt=""><span>Belchior</span>
@@ -52,13 +57,13 @@
       </section>
 
       <section class="listen" id="ouvir" aria-labelledby="listen-title">
-        <h2 id="listen-title">Onde você quer ouvir?</h2>
+        <h2 id="listen-title">Onde você quer ouvir? <span class="eq" aria-hidden="true"><span></span><span></span><span></span><span></span></span></h2>
         <ul class="platforms">
-          <li><a class="platform" href="https://open.spotify.com/artist/0C8HhyOa7zfzIl3gmPjY52"><span class="platform-icon"><svg aria-hidden="true"><use href="#icon-spotify"/></svg></span><span>Spotify</span><svg class="external" aria-hidden="true"><use href="#icon-external"/></svg></a></li>
-          <li><a class="platform" href="https://music.youtube.com/channel/UCtm1o_NsVVPW0zT25epyXEQ"><span class="platform-icon"><svg aria-hidden="true"><use href="#icon-youtube-music"/></svg></span><span>YouTube Music</span><svg class="external" aria-hidden="true"><use href="#icon-external"/></svg></a></li>
-          <li><a class="platform" href="https://music.apple.com/br/artist/belchior/41666859"><span class="platform-icon"><svg aria-hidden="true"><use href="#icon-apple"/></svg></span><span>Apple Music</span><svg class="external" aria-hidden="true"><use href="#icon-external"/></svg></a></li>
-          <li><a class="platform" href="https://www.deezer.com/br/artist/95768"><span class="platform-icon"><svg aria-hidden="true"><use href="#icon-deezer"/></svg></span><span>Deezer</span><svg class="external" aria-hidden="true"><use href="#icon-external"/></svg></a></li>
-          <li><a class="platform" href="https://www.youtube.com/channel/UCtm1o_NsVVPW0zT25epyXEQ"><span class="platform-icon"><svg aria-hidden="true"><use href="#icon-youtube"/></svg></span><span>YouTube</span><svg class="external" aria-hidden="true"><use href="#icon-external"/></svg></a></li>
+          <li><a class="platform" href="https://open.spotify.com/artist/0C8HhyOa7zfzIl3gmPjY52"><svg aria-hidden="true"><use href="#icon-spotify"/></svg><span>Spotify</span></a></li>
+          <li><a class="platform" href="https://music.youtube.com/channel/UCtm1o_NsVVPW0zT25epyXEQ"><svg aria-hidden="true"><use href="#icon-youtube-music"/></svg><span>YouTube Music</span></a></li>
+          <li><a class="platform" href="https://music.apple.com/br/artist/belchior/41666859"><svg aria-hidden="true"><use href="#icon-apple"/></svg><span>Apple Music</span></a></li>
+          <li><a class="platform" href="https://www.deezer.com/br/artist/95768"><svg aria-hidden="true"><use href="#icon-deezer"/></svg><span>Deezer</span></a></li>
+          <li><a class="platform" href="https://www.youtube.com/channel/UCtm1o_NsVVPW0zT25epyXEQ"><svg aria-hidden="true"><use href="#icon-youtube"/></svg><span>YouTube</span></a></li>
         </ul>
       </section>
     </div>
@@ -71,16 +76,13 @@
         <p class="eyebrow">Álbum em destaque <span></span> 1976</p>
         <h2 id="feature-title">Alucinação</h2>
         <p>De “Como Nossos Pais” a “Velha Roupa Colorida”, um disco sobre juventude, desencanto e a vontade de seguir em frente.</p>
-        <div class="feature-actions">
+        <div class="feature-actions" role="group" aria-label="Ouvir Alucinação">
           <a class="feature-link" href="https://open.spotify.com/album/2AwtTIdUFaUl69alioeFut"><svg aria-hidden="true"><use href="#icon-spotify"/></svg> Ouvir no Spotify <svg class="external" aria-hidden="true"><use href="#icon-external"/></svg></a>
-          <details class="album-options">
-            <summary>Mais plataformas</summary>
-            <ul>
-              <li><a href="https://music.youtube.com/playlist?list=OLAK5uy_lnhpc8i2G7A-H2lr8D_ncaR23a2djr4vE">YouTube Music <svg class="external" aria-hidden="true"><use href="#icon-external"/></svg></a></li>
-              <li><a href="https://music.apple.com/br/album/alucina%C3%A7%C3%A3o/1442649995">Apple Music <svg class="external" aria-hidden="true"><use href="#icon-external"/></svg></a></li>
-              <li><a href="https://www.deezer.com/br/album/14229918">Deezer <svg class="external" aria-hidden="true"><use href="#icon-external"/></svg></a></li>
-            </ul>
-          </details>
+          <div class="album-platforms">
+            <a href="https://music.youtube.com/playlist?list=OLAK5uy_lnhpc8i2G7A-H2lr8D_ncaR23a2djr4vE" aria-label="Ouvir no YouTube Music" title="YouTube Music"><svg aria-hidden="true"><use href="#icon-youtube-music"/></svg></a>
+            <a href="https://music.apple.com/br/album/alucina%C3%A7%C3%A3o/1442649995" aria-label="Ouvir no Apple Music" title="Apple Music"><svg aria-hidden="true"><use href="#icon-apple"/></svg></a>
+            <a href="https://www.deezer.com/br/album/14229918" aria-label="Ouvir no Deezer" title="Deezer"><svg aria-hidden="true"><use href="#icon-deezer"/></svg></a>
+          </div>
         </div>
       </div>
     </section>
@@ -140,6 +142,9 @@
       <figure class="history-photo">
         <img src="assets/belchior-portrait.webp" width="960" height="1006" alt="Belchior toca violão ao lado de outro músico no festival de 1971" loading="lazy" decoding="async">
         <figcaption>IV Festival Universitário da Música Popular Brasileira · 1971</figcaption>
+        <div class="signature-wrap" aria-label="Autógrafo de Belchior">
+          <img class="signature" src="assets/belchior-assinatura.png" alt="Assinatura de Belchior" loading="lazy" decoding="async">
+        </div>
       </figure>
       <div class="history-copy">
         <h2 id="history-title">De Sobral<br>para o Brasil</h2>
