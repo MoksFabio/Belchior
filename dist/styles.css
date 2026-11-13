@@ -165,16 +165,6 @@ svg { width: 1.25rem; height: 1.25rem; flex: none; }
   background: #f6f6f6;
 }
 .feature-art img { width: min(100%, 23.5rem); height: auto; }
-.disc-art::after {
-  position: absolute;
-  content: "";
-  inset: 0;
-  pointer-events: none;
-  background: url("assets/grain.svg") center / 8rem;
-  mix-blend-mode: multiply;
-  opacity: 0.36;
-}
-.art-label { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.18em; }
 .feature-copy { align-self: center; padding: clamp(1.15rem, 5vw, 3rem); }
 .feature-copy .eyebrow { color: var(--dark-muted); }
 .feature-copy h2 { margin-block: 0.32rem 0.58rem; font-size: clamp(3.05rem, 12vw, 5.3rem); }
@@ -235,28 +225,14 @@ svg { width: 1.25rem; height: 1.25rem; flex: none; }
 }
 .disc { min-width: 0; scroll-snap-align: start; }
 .disc-link { display: block; text-decoration: none; border-radius: 0.5rem; }
-.disc-cover { width: 100%; height: auto; aspect-ratio: 1; border-radius: 0.5rem; }
-.disc-art {
-  position: relative;
-  isolation: isolate;
-  display: grid;
+.disc-cover {
+  width: 100%;
+  height: auto;
   aspect-ratio: 1;
-  align-content: space-between;
-  overflow: hidden;
-  padding: 9%;
+  object-fit: contain;
   border-radius: 0.5rem;
+  background: #e9e9e9;
 }
-.disc-art::before { content: ""; position: absolute; z-index: -1; transition: transform 500ms cubic-bezier(.2,.7,.3,1); }
-.disc-art .art-type { font: clamp(2.1rem, 8vw, 3.2rem)/0.83 var(--serif); letter-spacing: -0.055em; }
-.art-debut { background: #dedede; color: var(--ink); }
-.art-debut::before { width: 92%; aspect-ratio: 1; bottom: -37%; right: -28%; border-radius: 50%; border: 1px solid #737373; box-shadow: 0 0 0 0.7rem #a4a4a4, 0 0 0 1.1rem #737373, 0 0 0 1.7rem #c5c5c5; background: #969696; }
-.art-debut .art-type { margin-top: 0.2em; }
-.art-selvagem { background: #4a4a4a; color: var(--light); }
-.art-selvagem::before { width: 100%; height: 100%; inset: -23% -40% auto auto; border-radius: 50%; border: 1px solid #aaa; box-shadow: 0 0 0 0.75rem #555, 0 0 0 1.6rem #707070, 0 0 0 2.4rem #373737; }
-.art-sentidos { background: #d0d0d0; color: var(--ink); }
-.art-sentidos::before { width: 100%; height: 58%; right: -13%; bottom: 5%; background: repeating-linear-gradient(136deg, transparent 0 10%, #909090 11% 14%, transparent 15% 24%); rotate: -8deg; }
-.art-tempo { background: #353535; color: var(--light); }
-.art-tempo::before { width: 82%; aspect-ratio: 1; left: -22%; top: 12%; border: 1px solid #999; border-radius: 50%; box-shadow: 0 0 0 0.75rem #484848, 0 0 0 0.8rem #999, 0 0 0 1.6rem #484848, 0 0 0 1.65rem #999; }
 .disc-info { display: flex; justify-content: space-between; gap: 0.4rem; align-items: end; padding-top: 0.62rem; }
 .disc-info span { display: block; color: var(--muted); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.09em; }
 .disc-info h3 { margin-top: 0.12rem; font-size: clamp(1.45rem, 5.5vw, 2.05rem); }
@@ -315,7 +291,7 @@ svg { width: 1.25rem; height: 1.25rem; flex: none; }
 @media (hover: hover) {
   .platform:hover { background: #eee; border-color: var(--ink); }
   .platform:hover .external, .disc-link:hover .external, .feature-link:hover .external { transform: translate(0.12rem, -0.12rem); }
-  .disc-link:hover .disc-art::before, .disc-link:focus-visible .disc-art::before { transform: scale(1.13) rotate(8deg); }
+  .disc-link:hover h3 { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.12em; }
 }
 
 @media (min-width: 45rem) {
@@ -333,7 +309,6 @@ svg { width: 1.25rem; height: 1.25rem; flex: none; }
   .feature-art { min-height: 17rem; padding: 0.65rem 1rem 0.35rem; }
   .feature-art img { width: min(100%, 24rem); }
   .disc-list { grid-auto-columns: calc((100% - 2.4rem) / 4); margin-inline: 0; padding-inline: 0.25rem; scroll-padding-inline: 0.25rem; }
-  .disc-art .art-type { font-size: clamp(1.75rem, 4.3vw, 3.2rem); }
   .history { grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); align-items: start; gap: clamp(1.35rem, 5vw, 4.5rem); padding-top: 2rem; }
   .history-photo { order: 0; }
   .history-photo img { height: clamp(21rem, 37vw, 29rem); }
