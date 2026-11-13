@@ -614,6 +614,7 @@ html[data-theme="dark"] {
   --ink: #f2efe8;
   --muted: #a6a29a;
   --line: rgba(255, 255, 255, 0.14);
+  --icon-cutout: #1d1d1d;
 }
 html[data-theme="dark"] body {
   background: #141414;
@@ -632,6 +633,19 @@ html[data-theme="dark"] .wordmark-icon {
 html[data-theme="dark"] .platform {
   background: #1d1d1d;
   color: #f2efe8;
+}
+html[data-theme="dark"] .feature-copy {
+  background: #1d1d1d;
+  color: #f2efe8;
+}
+html[data-theme="dark"] .feature-link {
+  background: #f2efe8;
+  color: #141414;
+}
+html[data-theme="dark"] .album-platforms a {
+  background: #2a2a2a;
+  color: #f2efe8;
+  border-color: rgba(255, 255, 255, 0.14);
 }
 html[data-theme="dark"] .platform::before {
   background: radial-gradient(120px circle at var(--mx, 50%) var(--my, 50%), rgba(255, 255, 255, 0.1), transparent 70%);
