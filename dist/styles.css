@@ -879,6 +879,16 @@ html[data-theme="dark"] .signature {
   to { stroke-dashoffset: 0; }
 }
 
+.is-typing::after {
+  content: "|";
+  margin-left: 2px;
+  font-weight: 400;
+  animation: caret-blink 0.65s steps(1) infinite;
+}
+@keyframes caret-blink {
+  50% { opacity: 0; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }

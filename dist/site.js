@@ -228,6 +228,71 @@ document.querySelectorAll(".platform").forEach((btn) => {
   });
 });
 
+function typeElement(el, speed = 28) {
+  return new Promise((resolve) => {
+    const fullText = el.dataset.typeText;
+    if (!fullText) return resolve();
+    el.textContent = "";
+    el.classList.add("is-typing");
+    let i = 0;
+    const timer = setInterval(() => {
+      i += 1;
+      el.textContent = fullText.slice(0, i);
+      if (i >= fullText.length) {
+        clearInterval(timer);
+        el.classList.remove("is-typing");
+        resolve();
+      }
+    }, speed);
+  });
+}
+
+if (!reducedMotion.matches) {
+  const heroTexts = [...document.querySelectorAll("#hero-title, .hero-subtitle")];
+  heroTexts.forEach((el) => {
+    el.dataset.typeText = el.textContent.trim();
+    el.textContent = "";
+  });
+
+  const runHeroType = async () => {
+    for (const el of heroTexts) {
+      await typeElement(el, el.id === "hero-title" ? 65 : 32);
+    }
+  };
+
+  const splashEl = document.getElementById("splash");
+  if (splashEl) {
+    let waitMs = 5000;
+    try {
+      if (localStorage.getItem("belchior_visited")) waitMs = 3000;
+    } catch {}
+    setTimeout(runHeroType, waitMs + 200);
+  } else {
+    runHeroType();
+  }
+
+  const sectionTextSelector = ".listen h2, .feature-copy .eyebrow, .feature-copy h2, .feature-copy > p:not(.eyebrow), .section-heading h2, .section-heading p, .history-copy h2, .history-copy > p";
+  const sectionTexts = [...document.querySelectorAll(sectionTextSelector)];
+  sectionTexts.forEach((el) => {
+    el.dataset.typeText = el.textContent.trim();
+    el.textContent = "";
+  });
+
+  if ("IntersectionObserver" in window) {
+    const typeObserver = new IntersectionObserver((entries, obs) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          typeElement(entry.target, 22);
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    sectionTexts.forEach((el) => typeObserver.observe(el));
+  } else {
+    sectionTexts.forEach((el) => { el.textContent = el.dataset.typeText; });
+  }
+}
+
 const shareButton = document.querySelector(".share-button");
 const shareStatus = document.querySelector("#share-status");
 if (location.protocol.startsWith("http") && (navigator.share || navigator.clipboard?.writeText)) {
