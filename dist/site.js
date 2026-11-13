@@ -293,64 +293,15 @@ if (!reducedMotion.matches) {
   }
 }
 
-const journeyStops = [
-  {
-    year: "1946 · Sobral, CE",
-    title: "Onde tudo começou",
-    text: "Antônio Carlos Belchior nasceu em Sobral, no sertão cearense, crescendo entre cantorias, rádio e poesia popular.",
-    offset: 520,
-  },
-  {
-    year: "1965 · Fortaleza, CE",
-    title: "Medicina e os primeiros palcos",
-    text: "Mudou-se para Fortaleza, estudou medicina na UFC e mergulhou na cena musical universitária ao lado de Fagner e Ednardo.",
-    offset: 390,
-  },
-  {
-    year: "1971 · Rio de Janeiro, RJ",
-    title: "A vitória no IV Festival",
-    text: "Conquistou o país ao vencer o IV Festival Universitário com “Na Hora do Almoço”, abrindo caminho na MPB.",
-    offset: 250,
-  },
-  {
-    year: "1976 · São Paulo, SP",
-    title: "O marco de Alucinação",
-    text: "Em São Paulo gravou “Alucinação”, reunindo hinos geracionais como “Como Nossos Pais” e “Apenas um Rapaz Latino-Americano”.",
-    offset: 120,
-  },
-  {
-    year: "2017 · Santa Cruz do Sul, RS",
-    title: "O legado eterno",
-    text: "Passou seus últimos anos no Rio Grande do Sul, deixando uma obra poética e musical que atravessa gerações.",
-    offset: 0,
-  },
-];
-
-const journeyEl = document.getElementById("journey");
-if (journeyEl) {
-  const buttons = [...journeyEl.querySelectorAll(".journey-stop")];
-  const progressPath = document.getElementById("journey-progress");
-  const card = document.getElementById("journey-card");
-
-  buttons.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const idx = Number(btn.dataset.stop);
-      const data = journeyStops[idx];
-      if (!data) return;
-
-      buttons.forEach((b, i) => {
-        b.classList.toggle("is-active", i === idx);
-        b.setAttribute("aria-selected", i === idx ? "true" : "false");
-      });
-
-      if (progressPath) {
-        progressPath.style.strokeDashoffset = String(data.offset);
-      }
-
-      if (card) {
-        card.innerHTML = `<span class="journey-year">${data.year}</span><h4>${data.title}</h4><p>${data.text}</p>`;
-      }
-    });
+const bioCarousel = document.getElementById("bio-carousel");
+const bioTrack = document.getElementById("bio-track");
+if (bioCarousel && bioTrack) {
+  bioCarousel.addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-bio-dir]");
+    if (!btn) return;
+    const dir = Number(btn.dataset.bioDir);
+    const step = bioTrack.querySelector(".bio-slide")?.offsetWidth || 260;
+    bioTrack.scrollBy({ left: dir * (step + 14), behavior: reducedMotion.matches ? "auto" : "smooth" });
   });
 }
 
