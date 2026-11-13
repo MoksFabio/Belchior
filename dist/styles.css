@@ -536,6 +536,109 @@ body.is-loading .history-photo > * {
   display: block;
   mix-blend-mode: multiply;
   filter: contrast(1.2);
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 1.6s cubic-bezier(.25, .1, .25, 1) 0.2s;
+}
+.history.is-visible .signature {
+  clip-path: inset(0 0 0 0);
+}
+
+.platform {
+  position: relative;
+  overflow: hidden;
+}
+.platform::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(120px circle at var(--mx, 50%) var(--my, 50%), rgba(0, 0, 0, 0.06), transparent 70%);
+  opacity: 0;
+  transition: opacity 200ms ease;
+  pointer-events: none;
+}
+.platform:hover::before {
+  opacity: 1;
+}
+
+.theme-toggle {
+  display: grid;
+  place-items: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  align-self: center;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: transform 200ms ease, background-color 200ms ease;
+}
+.theme-toggle:hover {
+  transform: rotate(25deg);
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.back-to-top {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 45;
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--paper, #f6f4ef);
+  color: var(--ink, #181818);
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  opacity: 0;
+  transform: translateY(0.75rem);
+  pointer-events: none;
+  transition: opacity 250ms ease, transform 250ms ease;
+}
+.back-to-top.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.back-to-top:hover {
+  transform: translateY(-2px);
+}
+
+html[data-theme="dark"] {
+  --paper: #141414;
+  --ink: #f2efe8;
+  --muted: #a6a29a;
+  --line: rgba(255, 255, 255, 0.14);
+}
+html[data-theme="dark"] body {
+  background: #141414;
+  color: #f2efe8;
+}
+html[data-theme="dark"] .masthead {
+  background: #141414;
+}
+html[data-theme="dark"] .splash {
+  background: #141414;
+}
+html[data-theme="dark"] .splash img,
+html[data-theme="dark"] .wordmark-icon {
+  filter: invert(1);
+}
+html[data-theme="dark"] .platform {
+  background: #1d1d1d;
+  color: #f2efe8;
+}
+html[data-theme="dark"] .platform::before {
+  background: radial-gradient(120px circle at var(--mx, 50%) var(--my, 50%), rgba(255, 255, 255, 0.1), transparent 70%);
+}
+html[data-theme="dark"] .signature {
+  mix-blend-mode: screen;
+  filter: invert(1) contrast(1.2);
 }
 .sig-main {
   stroke-dasharray: 760;

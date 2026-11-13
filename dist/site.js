@@ -175,6 +175,65 @@ if ("IntersectionObserver" in window && navSections.length) {
   navSections.forEach(({ target }) => spyObserver.observe(target));
 }
 
+const backToTop = document.getElementById("back-to-top");
+if (backToTop) {
+  window.addEventListener("scroll", () => {
+    backToTop.classList.toggle("is-visible", window.scrollY > 420);
+  }, { passive: true });
+  backToTop.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: reducedMotion.matches ? "auto" : "smooth" });
+  });
+}
+
+const themeToggle = document.getElementById("theme-toggle");
+if (themeToggle) {
+  try {
+    if (localStorage.getItem("belchior_theme") === "dark") {
+      document.documentElement.setAttribute("data-theme", "dark");
+    }
+  } catch {}
+  themeToggle.addEventListener("click", () => {
+    const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+    if (isDark) {
+      document.documentElement.removeAttribute("data-theme");
+      try { localStorage.setItem("belchior_theme", "light"); } catch {}
+    } else {
+      document.documentElement.setAttribute("data-theme", "dark");
+      try { localStorage.setItem("belchior_theme", "dark"); } catch {}
+    }
+  });
+}
+
+if (!reducedMotion.matches) {
+  document.querySelectorAll(".platform").forEach((btn) => {
+    btn.addEventListener("pointermove", (e) => {
+      if (e.pointerType !== "mouse") return;
+      const rect = btn.getBoundingClientRect();
+      btn.style.setProperty("--mx", `${(e.clientX - rect.left).toFixed(1)}px`);
+      btn.style.setProperty("--my", `${(e.clientY - rect.top).toFixed(1)}px`);
+    });
+  });
+
+  if (discList) {
+    let autoPlayPaused = false;
+    const pauseAuto = () => { autoPlayPaused = true; };
+    const resumeAuto = () => { autoPlayPaused = false; };
+    discList.addEventListener("pointerenter", pauseAuto);
+    discList.addEventListener("pointerleave", resumeAuto);
+    discList.addEventListener("touchstart", pauseAuto, { passive: true });
+    discList.addEventListener("focusin", pauseAuto);
+
+    setInterval(() => {
+      if (autoPlayPaused) return;
+      const limit = discList.scrollWidth - discList.clientWidth;
+      if (limit < 3) return;
+      const step = discList.querySelector(".disc")?.offsetWidth || 260;
+      const nextLeft = discList.scrollLeft + step + 16;
+      discList.scrollTo({ left: nextLeft >= limit - 4 ? 0 : nextLeft, behavior: "smooth" });
+    }, 3800);
+  }
+}
+
 const shareButton = document.querySelector(".share-button");
 const shareStatus = document.querySelector("#share-status");
 if (location.protocol.startsWith("http") && (navigator.share || navigator.clipboard?.writeText)) {
