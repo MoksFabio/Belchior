@@ -105,7 +105,8 @@ svg { width: 1.25rem; height: 1.25rem; flex: none; }
 .hero-photo {
   position: relative;
   z-index: -2;
-  width: 100%;
+  width: calc(100% + 4px);
+  margin: -2px 0 0 -2px;
   height: clamp(14.5rem, 62vw, 21rem);
   object-fit: cover;
   object-position: 50% 18%;
