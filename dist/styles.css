@@ -268,7 +268,6 @@ svg { width: 1.25rem; height: 1.25rem; flex: none; }
 .timeline details[open] summary::after { content: "−"; }
 .timeline details > div { padding: 0 0.65rem 0.9rem 3.6rem; color: var(--muted); font-size: 0.89rem; }
 .timeline details[open] > div, .album-options[open] ul { animation: ink-in 260ms both; }
-.archive-photo { width: min(100%, 16rem); height: auto; margin-top: 0.65rem; border-radius: 0.3rem; filter: grayscale(1); }
 .text-link { display: inline-flex; align-items: center; gap: 0.3rem; min-height: 2.75rem; margin-top: 0.3rem; font-size: 0.83rem; font-weight: 700; text-underline-offset: 0.2em; }
 
 .footer { background: var(--ink); color: var(--light); }
@@ -283,10 +282,6 @@ svg { width: 1.25rem; height: 1.25rem; flex: none; }
 .back-to-top { text-underline-offset: 0.23em; }
 .footer :focus-visible { outline-color: var(--light); }
 .share-status:empty { position: absolute; }
-.credits { padding-top: 0.4rem; border-top: 1px solid #555; color: var(--dark-muted); font-size: 0.76rem; }
-.credits summary { min-height: 2.75rem; padding-block: 0.7rem; }
-.credits ul { margin: 0; padding-left: 1.15rem; }
-.credits li + li { margin-top: 0.45rem; }
 
 @media (hover: hover) {
   .platform:hover { background: #eee; border-color: var(--ink); }
@@ -314,7 +309,7 @@ svg { width: 1.25rem; height: 1.25rem; flex: none; }
   .history-photo img { height: clamp(21rem, 37vw, 29rem); }
   .footer-inner { grid-template-columns: 1fr auto; }
   .footer-actions { align-self: start; }
-  .credits, .share-status { grid-column: 1 / -1; }
+  .share-status { grid-column: 1 / -1; }
 }
 
 @media (min-width: 66rem) {
