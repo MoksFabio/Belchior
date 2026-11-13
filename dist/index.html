@@ -15,9 +15,9 @@
   <title>Belchior</title>
   <link rel="icon" href="assets/belchior-icon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/instrument-serif.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=4">
+  <link rel="stylesheet" href="styles.css?v=5">
   <button class="back-to-top" id="back-to-top" type="button" aria-label="Voltar ao topo" title="Voltar ao topo">↑</button>
-  <script src="site.js?v=4" defer></script>
+  <script src="site.js?v=5" defer></script>
 </head>
 <body id="inicio" class="is-loading">
   <a class="skip-link" href="#ouvir">Ir para as plataformas</a>
@@ -171,6 +171,41 @@
           </details>
         </div>
         <a class="text-link" href="https://www.ebc.com.br/especiais/belchior-70-anos">Explore o especial da EBC <svg class="external" aria-hidden="true"><use href="#icon-external"/></svg></a>
+
+        <div class="journey" id="journey" aria-label="Mapa da jornada de Belchior">
+          <div class="journey-header">
+            <p class="eyebrow"><span></span> Mapa da Jornada</p>
+            <h3>De Sobral para o Brasil</h3>
+          </div>
+          <div class="journey-map">
+            <svg class="journey-svg" viewBox="0 0 520 120" fill="none" aria-hidden="true">
+              <path class="journey-track" d="M40 34 C110 20, 140 50, 165 44 C230 30, 260 76, 305 74 C355 72, 380 86, 405 84 C445 82, 465 98, 485 102"/>
+              <path class="journey-progress" id="journey-progress" d="M40 34 C110 20, 140 50, 165 44 C230 30, 260 76, 305 74 C355 72, 380 86, 405 84 C445 82, 465 98, 485 102"/>
+            </svg>
+            <div class="journey-stops" role="tablist" aria-label="Cidades da biografia">
+              <button class="journey-stop is-active" type="button" role="tab" aria-selected="true" data-stop="0" style="left:7.7%;top:28%">
+                <span class="stop-dot"></span><span class="stop-label">Sobral<small>1946</small></span>
+              </button>
+              <button class="journey-stop" type="button" role="tab" aria-selected="false" data-stop="1" style="left:31.7%;top:36%">
+                <span class="stop-dot"></span><span class="stop-label">Fortaleza<small>1965</small></span>
+              </button>
+              <button class="journey-stop" type="button" role="tab" aria-selected="false" data-stop="2" style="left:58.6%;top:61%">
+                <span class="stop-dot"></span><span class="stop-label">Rio<small>1971</small></span>
+              </button>
+              <button class="journey-stop" type="button" role="tab" aria-selected="false" data-stop="3" style="left:77.8%;top:70%">
+                <span class="stop-dot"></span><span class="stop-label">São Paulo<small>1976</small></span>
+              </button>
+              <button class="journey-stop" type="button" role="tab" aria-selected="false" data-stop="4" style="left:93.2%;top:85%">
+                <span class="stop-dot"></span><span class="stop-label">Sul<small>2017</small></span>
+              </button>
+            </div>
+          </div>
+          <div class="journey-card" id="journey-card" aria-live="polite">
+            <span class="journey-year">1946 · Sobral, CE</span>
+            <h4>Onde tudo começou</h4>
+            <p>Antônio Carlos Belchior nasceu em Sobral, no sertão cearense, crescendo entre cantorias, rádio e poesia popular.</p>
+          </div>
+        </div>
       </div>
     </section>
   </main>
